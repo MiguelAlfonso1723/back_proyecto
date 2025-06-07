@@ -1,0 +1,36 @@
+{
+  "name": "back_proyecto",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MiguelAlfonso1723/back_proyecto.git"
+  },
+  "author": "Miguel Alfonso",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MiguelAlfonso1723/back_proyecto/issues"
+  },
+  "homepage": "https://github.com/MiguelAlfonso1723/back_proyecto#readme",
+  "devDependencies": {
+    "dotenv": "^16.5.0",
+    "nodemon": "^3.1.10"
+  },
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.15.1",
+    "swagger": "^0.7.5",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.1"
+  }
+}
