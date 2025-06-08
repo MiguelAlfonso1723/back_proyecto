@@ -22,7 +22,8 @@ const MenuSchema = new Schema({
     },
     is_available: {
         type: Boolean,
-        default: true
+        default: true,
+        required: true
     }
 })
 

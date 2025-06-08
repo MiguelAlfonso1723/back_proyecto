@@ -33,7 +33,7 @@ const route = express.Router();
 
 /**
  * @swagger
- * /categories:
+ * /categories/:
  *   get:
  *     summary: Obtener todas las categorías registradas
  *     tags: [Categories Controller]

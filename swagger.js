@@ -19,6 +19,18 @@ const swaggerDefinition = {
     tags: [{
         name: "Loggin Controller",
         description: "Creación de usuario e inicio de sesión"
+    },
+    {
+        name: "Menu Controller",
+        description: "Controlador de productos del menú"
+    },
+    {
+        name: "Categories Controller",
+        description: "Controlador de categorías del menú"
+    },
+    {
+        name: "Order Controller",
+        description: "Controlador de pedidos"
     }],
     servers: [{
         url: 'http://localhost:3000',

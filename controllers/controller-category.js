@@ -3,7 +3,7 @@ import jwt from "jsonwebtoken";
 
 const key = process.env.SECRET
 
-function validate(aux) {
+function validate(aux, role) {
     if (!aux) {
         return "The session has not been logged in or the token has not been entered.";
     }
@@ -17,7 +17,7 @@ function validate(aux) {
             return "Session Expired";
         }
 
-        if (payload.role !== "administrador" && payload.role !== "camarero") {
+        if (payload.role !== role) {
             return "Unauthorized role";
         }
 
@@ -31,8 +31,9 @@ function validate(aux) {
 async function getAll(req, res) {
     try {
         const token = req.headers.authorization;
-        const valid = validate(token);
-        if (valid !== true) {
+        const validAdmin = validate(token, "administrador");
+        const validWaiter = validate(token, "camarero");
+        if (validAdmin !== true && validWaiter !== true) {
             return res.status(401).json({
                 'state': false, 'message': valid, 'data': null
             });
@@ -47,7 +48,7 @@ async function getAll(req, res) {
 
 async function save(req, res) {
     const token = req.headers.authorization;
-    const valid = validate(token);
+    const valid = validate(token, "administrador")
     if (valid !== true) {
         return res.status(401).json({
             'state': false, 'message': valid, 'data': null

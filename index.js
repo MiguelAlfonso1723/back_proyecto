@@ -7,6 +7,7 @@ import './drivers/connect-db.mjs'
 import routeSignin from './routes/signin.mjs'
 import routeSignup from './routes/signup.mjs'
 import routeCategory from './routes/categories.mjs'
+import routeMenu from './routes/menus.mjs'
 
 const app = express()
 
@@ -20,5 +21,6 @@ app.use('/docs', swaggerUI.serve, swaggerUI.setup(swaggerSpec));
 app.use('/signin', routeSignin);
 app.use('/signup', routeSignup);
 app.use('/categories', routeCategory);
+app.use('/menus', routeMenu);
 
 app.listen(app.get('PORT'), () => console.log(`Server Ready at Port ${app.get('PORT')}`));
