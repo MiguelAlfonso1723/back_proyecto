@@ -27,6 +27,11 @@ const route = express.Router()
  *                              type: string
  *                              description: Contraseña con la que se inicia sesión
  *                              example: IsthismyP@ssw0rd
+  *                          role:
+ *                              type: string
+ *                              description: rol del usuario, puede ser administrador o camarero
+ *                              enum: [administrador, camarero]
+ *                              example: camarero
  *      responses:
  *         '201':
  *              description: 
@@ -46,6 +51,10 @@ const route = express.Router()
  *                                      type: string
  *                                      description: Correo con el cual se registro
  *                                      example: example@gmail.com *  
+ *                                  role:
+ *                                      type: string
+ *                                      description: Rol del usuario, puede ser administrador o camarero
+ *                                      example: camarero
  *                                  _id:
  *                                      type: string
  *                                      description: Especifica los Indentificadores de los productos pertenecen a dicha compañia
@@ -55,6 +64,25 @@ const route = express.Router()
  *                                     description: clave de versión que se utiliza para registrar las revisiones de un documento.
  *                                     example: 0 
  *  
+ *         '401':
+ *              description: Esta respuesta significa que el usuario no esta autorizado para usar el endpoint.
+ *              content:
+ *                  application/json:
+ *                      schema:
+ *                          type: object
+ *                          properties:
+ *                            state:
+ *                              type: boolean
+ *                              description: Indica si se inicio sesión o no
+ *                              example: false
+ *                            message:
+ *                              type: string
+ *                              description: Indica el resultado de la solicitud
+ *                              example: Unauthorized role
+ *                            token:
+ *                              type: string
+ *                              description: token de acceso
+ *                              example: null
  *         '400':
  *              description: Esta respuesta significa que el servidor no pudo interpretar la solicitud dada una sintaxis inválida.
  *              content:

@@ -14,7 +14,7 @@ async function loggin(req, res) {
             if (isMatch) {
                 const token = jwt.sign({
                     sub: 'Token',
-                    password,
+                    role: userlog.role,
                     exp: Date.now() + 24 * 60 * 60 * 1000 //24 hours of expiration (86400000 ms = 24 hours)
                 }, key)
                 console.log('You access')
