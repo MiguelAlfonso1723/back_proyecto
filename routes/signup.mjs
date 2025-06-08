@@ -64,25 +64,6 @@ const route = express.Router()
  *                                     description: clave de versión que se utiliza para registrar las revisiones de un documento.
  *                                     example: 0 
  *  
- *         '401':
- *              description: Esta respuesta significa que el usuario no esta autorizado para usar el endpoint.
- *              content:
- *                  application/json:
- *                      schema:
- *                          type: object
- *                          properties:
- *                            state:
- *                              type: boolean
- *                              description: Indica si se inicio sesión o no
- *                              example: false
- *                            message:
- *                              type: string
- *                              description: Indica el resultado de la solicitud
- *                              example: Unauthorized role
- *                            token:
- *                              type: string
- *                              description: token de acceso
- *                              example: null
  *         '400':
  *              description: Esta respuesta significa que el servidor no pudo interpretar la solicitud dada una sintaxis inválida.
  *              content:
@@ -98,6 +79,25 @@ const route = express.Router()
  *                              type: string
  *                              description: Indica el resultado de la solicitud
  *                              example: User Don't Exist 
+ *                            token:
+ *                              type: string
+ *                              description: token de acceso
+ *                              example: null
+  *         '401':
+ *              description: Esta respuesta significa que el usuario no esta autorizado para usar el endpoint.
+ *              content:
+ *                  application/json:
+ *                      schema:
+ *                          type: object
+ *                          properties:
+ *                            state:
+ *                              type: boolean
+ *                              description: Indica si se inicio sesión o no
+ *                              example: false
+ *                            message:
+ *                              type: string
+ *                              description: Indica el resultado de la solicitud
+ *                              example: Unauthorized role
  *                            token:
  *                              type: string
  *                              description: token de acceso

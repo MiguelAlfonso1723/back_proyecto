@@ -3,7 +3,6 @@ import jwt from 'jsonwebtoken';
 import bcrypt from 'bcrypt';
 
 const key = process.env.SECRET;
-const saltRounds = 10;
 
 async function loggin(req, res) {
     const { mail, password } = req.body;

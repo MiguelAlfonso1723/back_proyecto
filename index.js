@@ -6,6 +6,7 @@ import cors from 'cors'
 import './drivers/connect-db.mjs'
 import routeSignin from './routes/signin.mjs'
 import routeSignup from './routes/signup.mjs'
+import routeCategory from './routes/categories.mjs'
 
 const app = express()
 
@@ -17,6 +18,7 @@ app.use(express.json())
 app.use('/docs', swaggerUI.serve, swaggerUI.setup(swaggerSpec));
 
 app.use('/signin', routeSignin);
-app.use('/signup', routeSignup)
+app.use('/signup', routeSignup);
+app.use('/categories', routeCategory);
 
 app.listen(app.get('PORT'), () => console.log(`Server Ready at Port ${app.get('PORT')}`));

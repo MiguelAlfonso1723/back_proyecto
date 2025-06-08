@@ -4,7 +4,7 @@ import { Schema } from "mongoose";
 const OrderSchema = new Schema({
     products: [{
         type: Schema.Types.ObjectId,
-        ref: 'menu',
+        ref: 'Menu',
         required: true
     }],
     quantity: {
@@ -31,3 +31,5 @@ const OrderSchema = new Schema({
         required: true,
     },
 })
+
+export default mongoose.model('Order', OrderSchema);

@@ -13,7 +13,7 @@ const MenuSchema = new Schema({
     },
     category: {
         type: Schema.Types.ObjectId,
-        ref: 'category',
+        ref: 'Category',
         required: true
     },
     capasity: {
@@ -26,4 +26,4 @@ const MenuSchema = new Schema({
     }
 })
 
-export default mongoose.model('menu', MenuSchema)
+export default mongoose.model('Menu', MenuSchema)

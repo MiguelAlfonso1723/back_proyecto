@@ -21,7 +21,7 @@ function validate(aux) {
         }
 
         if (payload.role !== "administrador") {
-            return "Unauthorized: role is not Administrador";
+            return "Unauthorized role";
         }
 
         return true;
@@ -37,7 +37,7 @@ async function register(req, res) {
 
     if (valid !== true) {
         return res.status(401).json({
-            'state': false, 'message': 'Unauthorized role', 'data': null
+            'state': false, 'message': valid, 'data': null
         });
     }
 
