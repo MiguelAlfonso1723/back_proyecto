@@ -21,7 +21,7 @@ const swaggerDefinition = {
         description: "Creación de usuario e inicio de sesión"
     },
     {
-        name: "Menu Controller",
+        name: "Menus Controller",
         description: "Controlador de productos del menú"
     },
     {

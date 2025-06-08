@@ -8,6 +8,7 @@ import routeSignin from './routes/signin.mjs'
 import routeSignup from './routes/signup.mjs'
 import routeCategory from './routes/categories.mjs'
 import routeMenu from './routes/menus.mjs'
+import routerOrder from './routes/orders.mjs'
 
 const app = express()
 
@@ -22,5 +23,6 @@ app.use('/signin', routeSignin);
 app.use('/signup', routeSignup);
 app.use('/categories', routeCategory);
 app.use('/menus', routeMenu);
+app.use('/orders', routerOrder);
 
 app.listen(app.get('PORT'), () => console.log(`Server Ready at Port ${app.get('PORT')}`));

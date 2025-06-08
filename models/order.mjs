@@ -3,14 +3,16 @@ import { Schema } from "mongoose";
 
 const OrderSchema = new Schema({
     products: [{
-        type: Schema.Types.ObjectId,
-        ref: 'Menu',
-        required: true
+        menu: {
+            type: Schema.Types.ObjectId,
+            ref: 'Menu',
+            required: true
+        },
+        quantity: {
+            type: Number,
+            required: true
+        }
     }],
-    quantity: {
-        type: Number,
-        required: true
-    },
     order_type: {
         type: String,
         enum: ['llevar', 'domicilio', 'local'],
@@ -26,8 +28,8 @@ const OrderSchema = new Schema({
         required: true,
         default: false
     },
-    register_hour: {
-        type: String,
+    date: {
+        type: Date,
         required: true,
     },
 })
