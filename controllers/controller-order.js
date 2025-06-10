@@ -161,7 +161,18 @@ async function salesRecordMonthly(req, res) {
                 { is_active: false, is_cancelled: false },
                 { is_cancelled: true }
             ]
-        }).populate('products.menu');
+        }).populate({
+            path: 'products.menu',
+            model: 'Menu' // Asegúrate de que este sea el nombre exacto del modelo que exportas
+        })
+
+        console.log('Pedidos obtenidos:', orders.map(o =>
+            o.products.map(p => ({
+                menu: p.menu,
+                tipo: typeof p.menu,
+                tienePrecio: p.menu?.price,
+            }))
+        ));
 
         const pedidos = {
             ventas: { total: 0, cantidad: 0 },
@@ -179,6 +190,7 @@ async function salesRecordMonthly(req, res) {
 
             let total = 0;
             for (const item of order.products) {
+                console.log(item);
                 if (item.menu && item.menu.price) {
                     total += item.menu.price * item.quantity;
                 }
