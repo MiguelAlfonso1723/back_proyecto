@@ -60,6 +60,7 @@ async function save(req, res) {
         category,
         capasity,
         is_available,
+        url_image
     } = req.body;
 
     const menu = await Menu.findOne({ name_product: name_product });
@@ -75,6 +76,7 @@ async function save(req, res) {
         category,
         capasity,
         is_available,
+        url_image
     });
     await newMenu.save();
     return res.status(201).json({ state: true, message: "Menu created successfully", data: newMenu });
@@ -90,7 +92,7 @@ const update = async (req, res) => {
     }
 
     const { id } = req.params;
-    const { name_product, price, category, capasity, is_available } = req.body;
+    const { name_product, price, category, capasity, is_available, url_image } = req.body;
 
     try {
         const updatedMenu = await Menu.findByIdAndUpdate(id, {
@@ -98,7 +100,8 @@ const update = async (req, res) => {
             price,
             category,
             capasity,
-            is_available
+            is_available,
+            url_image
         }, { new: true });
 
         if (!updatedMenu) {

@@ -24,7 +24,11 @@ const MenuSchema = new Schema({
         type: Boolean,
         default: true,
         required: true
-    }
+    },
+    url_image: {
+        type: String,
+        required: [true, 'url_image required']
+    },
 })
 
 export default mongoose.model('Menu', MenuSchema)

@@ -20,6 +20,8 @@ const route = express.Router()
  *         - price
  *         - category
  *         - capasity
+ *         - is_available
+ *         - url_image 
  *       properties:
  *         _id:
  *           type: string
@@ -47,6 +49,10 @@ const route = express.Router()
  *           type: boolean
  *           description: Indica si el producto está disponible
  *           example: true
+ *         url_image:
+ *           type: string
+ *           description: URL de la imagen del producto
+ *           example: https://example.com/image.jpg
  */
 
 
@@ -149,6 +155,7 @@ route.get('/', getAll);
  *               - price
  *               - category
  *               - capasity
+ *               - url_image
  *             properties:
  *               name_product:
  *                 type: string
@@ -170,6 +177,10 @@ route.get('/', getAll);
  *                 type: boolean
  *                 description: Indica si el producto está disponible
  *                 example: true
+ *               url_image:
+ *                 type: string
+ *                 description: URL de la imagen del producto
+ *                 example: https://example.com/image.jpg
  *     responses:
  *       '201':
  *         description: Producto creado exitosamente
