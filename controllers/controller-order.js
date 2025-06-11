@@ -83,7 +83,10 @@ async function salesRecordDaily(req, res) {
                 { is_active: false, is_cancelled: false },
                 { is_cancelled: true }
             ]
-        }).populate('products.menu');
+        }).populate({
+            path: 'products.menu',
+            model: 'Menu' // Asegúrate de que este sea el nombre exacto del modelo que exportas
+        })
 
         const pedidos = {
             ventas: { total: 0, cantidad: 0 },
